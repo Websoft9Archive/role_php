@@ -3,7 +3,7 @@
     name: https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
 - name: Get PHP Version
-  shell: echo "{{phpver}}" | awk '{printf("%.0f\n", 10*$1)}'
+  shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
   register: phpversion
 
 
