@@ -14,7 +14,7 @@
 
 - name: Install Composer
   get_url:
-    url: "{{ php_getcomposer_url | default('https://getcomposer.org/composer.phar',true) }}"
+    url: "{{ php_getcomposer_url}}"
     dest: /usr/bin/composer
     mode: 0750
 
