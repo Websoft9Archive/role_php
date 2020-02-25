@@ -1,5 +1,5 @@
 php_runtime_meta:
-  CentOS:
+  RedHat:
     apache:
       vhost_dir: /etc/httpd/vhost
       vhost_src: vhost.conf
@@ -10,7 +10,7 @@ php_runtime_meta:
       vhost_src: default.conf
       service: nginx
       owner: nginx
-  Ubuntu:
+  Debian:
     apache:
       vhost_dir: /etc/apache2/sites-enabled
       vhost_src: vhost.conf
