@@ -54,3 +54,16 @@
     - {src: '/etc/php-fpm.d/www.conf',dest: /data/config/php/php-fpm.conf} 
     - {src: '/var/log/php-fpm',dest: '/data/logs/php-fpm'}
 
+- block:
+  - name: Download ioncube and unzip
+    unarchive:
+        src: https://dl.cnezsoft.com/ioncube_loaders_lin_x86-64.zip
+        dest: /tmp/
+        remote_src: yes 
+  
+  - name: copy ioncube module
+    command: cp /tmp/ioncube/ioncube_loader_lin_{{php_version}}.so /usr/lib64/php/modules/
+
+  - name: Write ioncube Configure
+    shell: echo "zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_{{php_version}}.so" >> /etc/php.ini
+  when: ioncube = "1"
