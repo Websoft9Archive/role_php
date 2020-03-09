@@ -66,4 +66,4 @@
 
   - name: Write ioncube Configure
     shell: echo "zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_{{php_version}}.so" >> /etc/php.ini
-  when: ioncube 
+  when: php_ioncube 
