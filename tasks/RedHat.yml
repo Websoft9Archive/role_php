@@ -27,7 +27,7 @@
     mode: 0750
 
 - name: Configure PHP
-  copy:
+  template:
     src: php-centos.ini
     dest: /etc/php.ini
 

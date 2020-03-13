@@ -19,7 +19,7 @@
     mode: 0750
 
 - name: Configure PHP
-  copy:
+  template:
     src: php-ubuntu.ini
     dest: /etc/php/{{php_version}}/fpm/php.ini
 
