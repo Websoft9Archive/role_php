@@ -9,6 +9,7 @@
 
 ### Bug Fixes
 
+* 2020-05-31  yum install php72w-pecl-imagick error
 * 2020-03-03  max_input_vars=2000
 
 ### Features
