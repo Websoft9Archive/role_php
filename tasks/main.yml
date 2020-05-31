@@ -5,6 +5,4 @@
   when: ansible_os_family == 'Debian'
 
 - name: Check PHP Version
-  shell: php -v
-  register: php_ver
-  notify: PHP Version
+  shell: sudo sh -c "php -v | grep PHP 1>> /data/logs/install_version.txt"
