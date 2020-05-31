@@ -11,6 +11,7 @@
 
 ### Bug Fixes
 
+* 2020-05-31  add check php-fpm service, check version to file
 * 2020-05-31  yum install php72w-pecl-imagick error, add skip_broken=yes
 * 2020-03-03  max_input_vars=2000
 
