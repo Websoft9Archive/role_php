@@ -6,3 +6,8 @@
 
 - name: Check PHP Version
   shell: sudo sh -c "php -v | grep PHP | sed -n 1p 1>> /data/logs/install_version.txt"
+  
+- name: Check php-fpm Service
+  shell: systemctl status php-fpm | grep Active*
+  register: check_php-fpm_service
+  notify: check_php-fpm_service
