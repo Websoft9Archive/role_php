@@ -9,5 +9,5 @@
   
 - name: Check php-fpm Service
   shell: systemctl status php-fpm | grep Active*
-  register: check_php-fpm_service
-  notify: check_php-fpm_service
+  register: check_phpfpm_service
+  notify: check_phpfpm_service
