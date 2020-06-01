@@ -1,3 +1,3 @@
-- name: check_php-fpm_service
+- name: check_phpfpm_service
   debug:
-    var: check_php-fpm_service.stdout
+    var: check_phpfpm_service.stdout
