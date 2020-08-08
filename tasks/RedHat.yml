@@ -27,7 +27,7 @@
     name: "{{ item }}"
     state: present
     skip_broken: yes
-  loop: "{{ php_packages_centos }}"
+  loop: "{{ php_extra_packages_centos }}"
   ignore_errors: yes
 
 - name: Install Composer
