@@ -47,12 +47,12 @@ php_packages_common:
   - php-xmlrpc
   - php-zip
 
-php_packages_RedHat:
+php_extra_packages_centos:
   - php-devel
   - php-mysqlnd
   - php-pdo_dblib
 
-php_packages_Debian:
+php_extra_packages_ubuntu:
   - php-dev
   - php-mysql
   - php-sqlite3
