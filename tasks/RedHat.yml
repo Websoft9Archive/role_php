@@ -21,6 +21,14 @@
     skip_broken: yes
   loop: "{{ php_packages_common }}"
   ignore_errors: yes
+  
+- name: Install extra PHP extension packages for {{ansible_distribution}}
+  yum: 
+    name: "{{ item }}"
+    state: present
+    skip_broken: yes
+  loop: "{{ php_packages_centos }}"
+  ignore_errors: yes
 
 - name: Install Composer
   get_url:
