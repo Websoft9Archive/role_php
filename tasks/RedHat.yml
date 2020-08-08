@@ -1,6 +1,9 @@
 - name: Import Remi's RPM PHP repository
   yum:
-    name: https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+    name: https://rpms.remirepo.net/enterprise/remi-release-{{ansible_distribution_major_version}}.rpm
+    
+- name: Enable php verion
+  yum: yum-config-manager --enable remi-php74
 
 - name: Install PHP{{ phpversion.stdout }}
   yum: 
