@@ -10,3 +10,35 @@ php_error_reporting: "E_ALL & ~E_DEPRECATED & ~E_STRICT"
 php_post_max_size: "200M"
 php_upload_max_filesize: "512M"
 php_max_file_uploads: "20"
+
+
+# Metadata
+php_packages:
+  - php-fpm
+  - php-cli
+  - php-pecl-imagick
+  - php-intl
+  - php-common
+  - php-gd
+  - php-mbstring
+  - php-pecl-mcrypt
+  - php-devel
+  - php-xml
+  - php-pdo
+  - php-bcmath
+  - php-pear
+  - php-opcache
+  - php-ldap
+  - php-odbc
+  - php-xmlrpc
+  - php-json
+  - php-mysqlnd
+  - php-pdo_dblib
+  - php-recode
+  - php-snmp
+  - php-soap
+  - php-pecl-zip
+  - php-curl
+  - php-imap
+  - php-pecl-redis
+  - php-pecl-apcu
