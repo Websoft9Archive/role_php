@@ -11,7 +11,7 @@
   
 - name: Install PHP core
   yum: 
-    nam: php
+    name: php
     update_cache: yes
 
 - name: Install PHP extension packages
