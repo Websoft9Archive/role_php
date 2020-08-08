@@ -12,7 +12,7 @@
 # Configure
 
 
-# verify 
+# Verify 
 - name: Check PHP Version
   shell: sudo sh -c "php -v | grep PHP | sed -n 1p 1>> /data/logs/install_version.txt"
   
