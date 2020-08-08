@@ -21,7 +21,6 @@ php_packages:
   - php-common
   - php-gd
   - php-mbstring
-  - php-pecl-mcrypt
   - php-devel
   - php-xml
   - php-pdo
@@ -42,3 +41,4 @@ php_packages:
   - php-imap
   - php-pecl-redis
   - php-pecl-apcu
+  - php-pecl-mcrypt
