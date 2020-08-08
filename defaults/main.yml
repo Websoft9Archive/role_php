@@ -12,7 +12,7 @@ php_upload_max_filesize: "512M"
 php_max_file_uploads: "20"
 
 
-# Metadata
+# Metadata, php<7.1 need php-pecl-mcrypt
 php_packages:
   - php-fpm
   - php-cli
