@@ -7,11 +7,11 @@
     php_version_regex: "{{ php_version | regex_replace('^(?P<before>.+).(?P<after>\\d+)$', '\\g<before>\\g<after>')}}"
     
 - name: Enable php verion for {{php_version}}
-  yum: yum-config-manager --enable remi-php{{php_version_regex}}
-  update_cache: yes
+  shell: yum-config-manager --enable remi-php{{php_version_regex}}
   
 - name: Install PHP core
   yum: php
+  update_cache: yes
 
 - name: Install PHP extension packages
   yum: 
