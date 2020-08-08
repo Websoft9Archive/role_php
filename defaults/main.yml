@@ -13,7 +13,9 @@ php_max_file_uploads: "20"
 
 
 # Metadata, php<7.1 need php-pecl-mcrypt
+# RedHat: apcu imagick mcrypt redis zip is from pecl
 php_packages:
+  - php-apcu
   - php-bcmath
   - php-cli
   - php-common
@@ -21,24 +23,23 @@ php_packages:
   - php-devel
   - php-fpm
   - php-gd
+  - php-imagick
   - php-imap
   - php-intl
   - php-json
   - php-ldap
   - php-mbstring
+  - php-mcrypt
   - php-mysqlnd
   - php-odbc
   - php-opcache
   - php-pdo
   - php-pdo_dblib
   - php-pear
-  - php-pecl-apcu
-  - php-pecl-imagick
-  - php-pecl-mcrypt
-  - php-pecl-redis
-  - php-pecl-zip
   - php-recode
+  - php-redis
   - php-snmp
   - php-soap
   - php-xml
   - php-xmlrpc
+  - php-zip
