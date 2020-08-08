@@ -13,43 +13,46 @@ php_max_file_uploads: "20"
 
 
 # Metadata, php<7.1 need php-pecl-mcrypt
-# RedHat: apcu imagick mcrypt redis zip is from pecl
+# RedHat: [apcu,imagick,goeio,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
 php_packages:
-  - php-apcu
-  - php-bcmath
-  - php-cli
-  - php-common
-  - php-curl
-  - php-devel
-  - php-fpm
-  - php-gd
-  - php-imagick
-  - php-imap
-  - php-intl
-  - php-json
-  - php-ldap
-  - php-mbstring
-  - php-mcrypt
-  - php-mysqlnd
-  - php-odbc
-  - php-opcache
-  - php-pdo
-  - php-pdo_dblib
-  - php-pear
-  - php-recode
-  - php-redis
-  - php-snmp
-  - php-soap
-  - php-xml
-  - php-xmlrpc
-  - php-zip
-
-其他
-php-bz2
-php-geoip
-php-memcache
-php-mongodb
-php-mysql=mysqlnd
-php-pgsql
-php-sqlite3安装的是php-pdo 
-php-tidy
+  common: 
+    - php-apcu
+    - php-bcmath
+    - php-bz2
+    - php-cli
+    - php-common
+    - php-curl
+    - php-fpm
+    - php-gd
+    - php-geoip
+    - php-imagick
+    - php-imap
+    - php-intl
+    - php-json
+    - php-ldap
+    - php-mbstring
+    - php-mcrypt
+    - php-memcache
+    - php-mongodb
+    - php-odbc
+    - php-opcache
+    - php-pdo
+    - php-pear
+    - php-pgsql
+    - php-recode
+    - php-redis
+    - php-snmp
+    - php-soap
+    - php-tidy
+    - php-xml
+    - php-xmlrpc
+    - php-zip
+    
+  RedHat:
+    - php-devel
+    - php-mysqlnd
+    - php-pdo_dblib
+  Debian:
+    - php-dev
+    - php-mysql
+    - php-sqlite3
