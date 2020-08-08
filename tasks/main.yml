@@ -1,9 +1,18 @@
-- import_tasks: RedHat.yml
-  when: ansible_os_family == 'RedHat'
+#1 Prepare
+- name: Create /data/config/php directory
+  file:
+    path: /data/config/php
+    state: directory
+    recurse: yes
+    
+#2 Install
+- name: Install this role on {{ansible_os_family}}
+  include: "{{ansible_os_family}}.yml"
+  
+# Configure
 
-- import_tasks: Debian.yml
-  when: ansible_os_family == 'Debian'
 
+# verify 
 - name: Check PHP Version
   shell: sudo sh -c "php -v | grep PHP | sed -n 1p 1>> /data/logs/install_version.txt"
   
