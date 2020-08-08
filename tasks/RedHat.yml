@@ -10,8 +10,9 @@
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
   
 - name: Install PHP core
-  yum: php
-  update_cache: yes
+  yum: 
+    nam: php
+    update_cache: yes
 
 - name: Install PHP extension packages
   yum: 
