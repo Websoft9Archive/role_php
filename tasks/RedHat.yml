@@ -1,14 +1,6 @@
-
-
-# Support 5.6-7.2
-- name: Import PHP repo
+- name: Import Remi's RPM PHP repository
   yum:
     name: https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-
-- name: Get PHP Version
-  shell: echo "{{php_version}}" | awk '{printf("%.0f\n", 10*$1)}'
-  register: phpversion
-
 
 - name: Install PHP{{ phpversion.stdout }}
   yum: 
