@@ -43,3 +43,13 @@ php_packages:
   - php-xml
   - php-xmlrpc
   - php-zip
+
+其他
+php-bz2
+php-geoip
+php-memcache
+php-mongodb
+php-mysql=mysqlnd
+php-pgsql
+php-sqlite3安装的是php-pdo 
+php-tidy
