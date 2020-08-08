@@ -1,3 +1,5 @@
+
+# Support 5.6-7.2
 - name: Import PHP repo
   yum:
     name: https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
