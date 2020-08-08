@@ -14,31 +14,31 @@ php_max_file_uploads: "20"
 
 # Metadata, php<7.1 need php-pecl-mcrypt
 php_packages:
-  - php-fpm
-  - php-cli
-  - php-pecl-imagick
-  - php-intl
-  - php-common
-  - php-gd
-  - php-mbstring
-  - php-devel
-  - php-xml
-  - php-pdo
   - php-bcmath
-  - php-pear
-  - php-opcache
-  - php-ldap
-  - php-odbc
-  - php-xmlrpc
+  - php-cli
+  - php-common
+  - php-curl
+  - php-devel
+  - php-fpm
+  - php-gd
+  - php-imap
+  - php-intl
   - php-json
+  - php-ldap
+  - php-mbstring
   - php-mysqlnd
+  - php-odbc
+  - php-opcache
+  - php-pdo
   - php-pdo_dblib
+  - php-pear
+  - php-pecl-apcu
+  - php-pecl-imagick
+  - php-pecl-mcrypt
+  - php-pecl-redis
+  - php-pecl-zip
   - php-recode
   - php-snmp
   - php-soap
-  - php-pecl-zip
-  - php-curl
-  - php-imap
-  - php-pecl-redis
-  - php-pecl-apcu
-  - php-pecl-mcrypt
+  - php-xml
+  - php-xmlrpc
