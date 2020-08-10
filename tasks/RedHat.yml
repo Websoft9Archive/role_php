@@ -17,13 +17,13 @@
   
 - name: Install PHP core for {{ansible_distribution}}
   yum: 
-    name: php{{php_version_regex}}
+    name: php
     update_cache: yes
   when: ansible_distribution == "CentOS"
   
 - name: Install PHP core for {{ansible_distribution}}
   yum: 
-    name: php{{php_version_regex}}
+    name: php
     disablerepo: amzn2-core
     update_cache: yes
   when: ansible_distribution == "Amazon"
