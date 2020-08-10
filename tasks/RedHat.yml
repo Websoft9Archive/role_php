@@ -1,6 +1,12 @@
-- name: Import Remi's RPM PHP repository
+- name: Import Remi's RPM PHP repository on {{ansible_distribution}}
   yum:
     name: https://rpms.remirepo.net/enterprise/remi-release-{{ansible_distribution_major_version}}.rpm
+  when: ansible_distribution == "CentOS"
+  
+- name: Import Remi's RPM PHP repository on AmazonLinux2
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+  when: ansible_distribution == "Amazon"  
     
 - name: String convert, e.g 7.2 to 72
   set_fact:
