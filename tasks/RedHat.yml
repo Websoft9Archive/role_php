@@ -42,11 +42,6 @@
     dest: /usr/bin/composer
     mode: 0750
 
-- name: Configure PHP
-  template:
-    src: php-centos.ini
-    dest: /etc/php.ini
-
 - block:
   - name: Download ioncube and unzip
     unarchive:
@@ -60,12 +55,6 @@
   - name: Write ioncube Configure
     shell: echo "zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_{{php_version}}.so" >> /etc/php.ini
   when: php_ioncube 
-
-- name: Restart PHP-FPM
-  service:
-    name: php-fpm
-    state: restarted
-    enabled: yes
 
 - name: Create a PHP  symbolic link
   file:
