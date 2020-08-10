@@ -31,7 +31,7 @@ php_configuration_extras:
 
 # Metadata, php<7.1 need php-pecl-mcrypt
 # RedHat: [apcu,imagick,goeio,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
-php_packages_common:
+php_modules_common:
   - php-apcu
   - php-bcmath
   - php-bz2
@@ -64,12 +64,12 @@ php_packages_common:
   - php-xmlrpc
   - php-zip
 
-php_extra_packages_centos:
+php_extra_modules_centos:
   - php-devel
   - php-mysqlnd
   - php-pdo_dblib
 
-php_extra_packages_ubuntu:
+php_extra_modules_ubuntu:
   - php-dev
   - php-mysql
   - php-sqlite3
