@@ -14,33 +14,25 @@
     
 - name: Enable php verion for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
-  
-- name: Install PHP core for {{ansible_distribution}}
+
+- name: Install PHP packages for {{ansible_distribution}}
   yum: 
-    name: php
+    name: "{{ item }}"
     state: latest
-    update_cache: yes
+  loop: 
+    - "{{ php_packages_common }}"
+    - "{{ php_extra_packages_centos }}"
   when: ansible_distribution == "CentOS"
   
-- name: Install PHP core for {{ansible_distribution}}
-  yum: 
-    name: php
-    state: latest
-    disablerepo: amzn2-core
-    update_cache: yes
-  when: ansible_distribution == "Amazon"
-
 - name: Install PHP extension packages for {{ansible_distribution}}
   yum: 
     name: "{{ item }}"
     state: latest
-  loop: "{{ php_packages_common }}"
-  
-- name: Install extra PHP extension packages for {{ansible_distribution}}
-  yum: 
-    name: "{{ item }}"
-    state: latest
-  loop: "{{ php_extra_packages_centos }}"
+    disablerepo: amzn2-core
+  loop: 
+    - "{{ php_packages_common }}"
+    - "{{ php_extra_packages_centos }}"
+  when: ansible_distribution == "Amazon"
 
 - name: Install Composer
   get_url:
