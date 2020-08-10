@@ -17,6 +17,12 @@
     line: "{{ item.name }} = {{item.value}}"
   with_items: "{{ php_configuration_extras }}"
   when: (php_configuration_extras is defined) and (php_configuration_extras != none)
+  
+- name: Restart PHP-FPM
+  service:
+    name: php-fpm
+    state: restarted
+    enabled: yes
 
 # Verify 
 - name: Check PHP Version
