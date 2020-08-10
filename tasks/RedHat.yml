@@ -19,6 +19,14 @@
   yum: 
     name: php{{php_version_regex}}
     update_cache: yes
+  when: ansible_distribution == "CentOS"
+  
+- name: Install PHP core on Amazon
+  yum: 
+    name: php{{php_version_regex}}
+    disablerepo: amzn2-core
+    update_cache: yes
+  when: ansible_distribution == "Amazon"
 
 - name: Install PHP extension packages
   yum: 
