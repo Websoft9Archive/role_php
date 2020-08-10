@@ -15,20 +15,20 @@
 - name: Enable php verion for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
   
-- name: Install PHP core
+- name: Install PHP core for {{ansible_distribution}}
   yum: 
     name: php{{php_version_regex}}
     update_cache: yes
   when: ansible_distribution == "CentOS"
   
-- name: Install PHP core on Amazon
+- name: Install PHP core for {{ansible_distribution}}
   yum: 
     name: php{{php_version_regex}}
     disablerepo: amzn2-core
     update_cache: yes
   when: ansible_distribution == "Amazon"
 
-- name: Install PHP extension packages
+- name: Install PHP extension packages for {{ansible_distribution}}
   yum: 
     name: "{{ item }}"
     state: present
