@@ -13,7 +13,8 @@ php_post_max_size: "200M"
 php_upload_max_filesize: "512M"
 php_max_file_uploads: "20"
 
-php_configuration_extras:
+#php_configuration_extras:
+php_configuration_default:
   - name: max_execution_time
     value: "300"
   - name: max_input_time
