@@ -40,28 +40,9 @@ roles:
 ## Example
 
 ```
-- name: LAMP
-  hosts: all
-  become: yes
-  become_method: sudo 
-  vars_files:
-    - vars/main.yml 
-
-  roles:
-    - {role: role_common, tags: "role_common"}
-    - {role: role_cloud, tags: "role_cloud"}
-    - {role: role_apache, tags: "role_apache"}
-    - {role: role_redis, tags: "role_redis"}
-    - {role: role_mysql, tags: "role_mysql"}
-    - {role: role_php-fpm, tags: "role_php-fpm"}
-    - {role: role_lamp, tags: "role_lamp"}
-    - {role: role_phpmyadmin, tags: "role_phpmyadmin"}
-    - {role: role_9panel, tags: "role_9panel"}
-    - {role: role_inotify_watch, tags: "inotify_watch"}
-    - {role: role_init_password, tags: "init_password"}
-    - {role: role_preend, tags: "role_preend"}
-    - {role: role_end, tags: "role_end"}
-    ...
+php_configuration_extras:
+  -
+  -
 ```
 
 ## FAQ
