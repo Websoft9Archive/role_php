@@ -12,7 +12,7 @@
   set_fact:
     php_version_regex: "{{ php_version | regex_replace('^(?P<before>.+).(?P<after>\\d+)$', '\\g<before>\\g<after>')}}"
     
-- name: Enable php verion for {{php_version}}
+- name: Enable php version for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
 
 - block:
@@ -55,6 +55,7 @@
       disablerepo: amzn2-core
     with_items:
       - "{{ php_modules_common }}"
+      - "{{ php_extra_modules_centos }}"
       
   - name: Install php_extra_modules_centos for {{ansible_distribution}}
     yum: 
