@@ -40,7 +40,7 @@
 
   - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
-      name: ['{{ php_modules_common }}', '{{ php_extra_modules_centos }}']
+      name: ['{{ php_modules_common }}']
       state: latest
       disablerepo: amzn2-core
       
