@@ -22,12 +22,18 @@
       state: latest	
       update_cache: yes	
 
-  - name: Install PHP modules for {{ansible_distribution}}
+  - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
       name: "{{ item }}"
       state: latest
-    with_items: 
+    loop: 
       - "{{ php_modules_common }}"
+      
+  - name: Install php_extra_modules_centos for {{ansible_distribution}}
+    yum: 
+      name: "{{ item }}"
+      state: latest
+    loop: 
       - "{{ php_extra_modules_centos }}"
       
   when: ansible_distribution == "CentOS"
@@ -41,13 +47,20 @@
       disablerepo: amzn2-core	
       update_cache: yes	
 
-  - name: Install PHP modules for {{ansible_distribution}}
+  - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
       name: "{{ item }}"
       state: latest
       disablerepo: amzn2-core
     with_items:
       - "{{ php_modules_common }}"
+      
+  - name: Install php_extra_modules_centos for {{ansible_distribution}}
+    yum: 
+      name: "{{ item }}"
+      state: latest
+      disablerepo: amzn2-core
+    with_items:
       - "{{ php_extra_modules_centos }}"
       
   when: ansible_distribution == "Amazon"
