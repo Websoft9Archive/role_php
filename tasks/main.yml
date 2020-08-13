@@ -29,7 +29,7 @@
     shell: echo "zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_{{php_version}}.so" >> /etc/php.ini
   when: php_ioncube 
   
-# Configure
+#3 Configure
 - name: Change php.ini default
   lineinfile:
     dest: /etc/php.ini
@@ -52,7 +52,7 @@
     state: restarted
     enabled: yes
 
-# Verify 
+#4 Verify 
 - name: Check PHP Version
   shell: sudo sh -c "php -v | grep PHP | sed -n 1p 1>> /data/logs/install_version.txt"
   
