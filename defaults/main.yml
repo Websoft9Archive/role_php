@@ -2,6 +2,8 @@
 php_version: "7.2"
 
 php_getcomposer_url: "https://getcomposer.org/composer.phar"
+
+php_ioncube_url: "https://dl.cnezsoft.com/ioncube_loaders_lin_x86-64.zip"
 php_ioncube: False
 
 #php.ini vars
