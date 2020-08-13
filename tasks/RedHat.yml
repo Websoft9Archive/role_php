@@ -24,18 +24,8 @@
 
   - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
-      name: "{{ item }}"
+      name: ['{{ php_modules_common }}', '{{ php_extra_modules_centos }}']
       state: latest
-    loop: 
-      - "{{ php_modules_common }}"
-      - "{{ php_extra_modules_centos }}"
-      
-  - name: Install php_extra_modules_centos for {{ansible_distribution}}
-    yum: 
-      name: "{{ item }}"
-      state: latest
-    loop: 
-      - "{{ php_extra_modules_centos }}"
       
   when: ansible_distribution == "CentOS"
 
@@ -50,20 +40,9 @@
 
   - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
-      name: "{{ item }}"
+      name: ['{{ php_modules_common }}', '{{ php_extra_modules_centos }}']
       state: latest
       disablerepo: amzn2-core
-    with_items:
-      - "{{ php_modules_common }}"
-      - "{{ php_extra_modules_centos }}"
-      
-  - name: Install php_extra_modules_centos for {{ansible_distribution}}
-    yum: 
-      name: "{{ item }}"
-      state: latest
-      disablerepo: amzn2-core
-    with_items:
-      - "{{ php_extra_modules_centos }}"
       
   when: ansible_distribution == "Amazon"
 
