@@ -16,7 +16,7 @@
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
 
 - block:
-  - name: Install PHP core for {{ansible_distribution}}	
+  - name: Install PHP core for {{ansible_distribution}}
     yum: 
       name: php
       state: latest
@@ -41,7 +41,7 @@
 
 
 - block:
-  - name: Install PHP core for {{ansible_distribution}}	
+  - name: Install PHP core for {{ansible_distribution}}
     yum: 
       name: php
       state: latest
