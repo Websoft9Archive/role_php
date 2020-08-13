@@ -52,26 +52,6 @@
       
   when: ansible_distribution == "Amazon"
 
-- name: Install Composer
-  get_url:
-    url: "{{ php_getcomposer_url }}"
-    dest: /usr/bin/composer
-    mode: 0750
-
-- block:
-  - name: Download ioncube and unzip
-    unarchive:
-        src: https://dl.cnezsoft.com/ioncube_loaders_lin_x86-64.zip
-        dest: /tmp/
-        remote_src: yes 
-  
-  - name: copy ioncube module
-    command: cp /tmp/ioncube/ioncube_loader_lin_{{php_version}}.so /usr/lib64/php/modules/
-
-  - name: Write ioncube Configure
-    shell: echo "zend_extension = /usr/lib64/php/modules/ioncube_loader_lin_{{php_version}}.so" >> /etc/php.ini
-  when: php_ioncube 
-
 - name: Create a PHP  symbolic link
   file:
     src: '{{item.src}}'
