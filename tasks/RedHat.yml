@@ -26,7 +26,7 @@
     yum: 
       name: "{{ item }}"
       state: latest
-    loop: 
+    with_items: 
       - "{{ php_modules_common }}"
       - "{{ php_extra_modules_centos }}"
       
@@ -46,7 +46,7 @@
       name: "{{ item }}"
       state: latest
       disablerepo: amzn2-core
-    loop: 
+    with_items:
       - "{{ php_modules_common }}"
       - "{{ php_extra_modules_centos }}"
       
