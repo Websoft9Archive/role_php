@@ -15,36 +15,29 @@
 - name: Enable php version for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
 
-- block:
-  - name: Install PHP core for {{ansible_distribution}}
-    yum: 
-      name: php
-      state: latest
-      update_cache: yes
-
-  - name: Install php_modules_common for {{ansible_distribution}}
-    yum: 
-      name: ['{{ php_modules_common }}', '{{ php_extra_modules_centos }}']
-      state: latest
-      
-  when: ansible_distribution == "CentOS"
-
-
-- block:
-  - name: Install PHP core for {{ansible_distribution}}
-    yum: 
-      name: php
-      state: latest
-      disablerepo: amzn2-core
-      update_cache: yes
-
-  - name: Install php_modules_common for {{ansible_distribution}}
-    yum: 
-      name: ['{{ php_modules_common }}']
-      state: latest
-      disablerepo: amzn2-core
-      
+- name: Set yum priority for PHP, because amzn2-core have php5.4
+  lineinfile:
+    path: /etc/yum.repos.d/remi-php{{php_version_regex}}.repo
+    insertbefore: '^[remi-php*-debuginfo]'
+    line: 'priority=1'
   when: ansible_distribution == "Amazon"
+
+- block:
+  - name: Install PHP core for {{ansible_distribution}}
+    yum: 
+      name: php
+      state: latest
+      update_cache: yes
+
+  - name: Install php_modules_common for {{ansible_distribution}}
+    yum: 
+      name: "{{ php_modules_common }}"
+      state: latest
+
+  - name: Install php_extra_modules_centos for {{ansible_distribution}}
+    yum: 
+      name: "{{ php_extra_modules_centos }}"
+      state: latest 
 
 - name: Create a PHP  symbolic link
   file:
