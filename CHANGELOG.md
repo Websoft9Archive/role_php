@@ -17,4 +17,5 @@
 
 ### Features
 
+* 2020-08-15  add php.service soft link to php-fpm.service
 * 2020-02-14  rename php-fpm to php for this repository
