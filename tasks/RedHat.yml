@@ -41,12 +41,16 @@
     loop: "{{ php_extra_modules_amazon }}"
     when: ansible_distribution == "Amazon"
 
-  - name: Install php_modules_common for {{ansible_distribution}}
+  - name: Install php_modules_common for {{ansible_distribution}}, print when error but installation go on
     yum: 
       name: "{{ item }}"
       state: latest
       update_cache: yes
+    register: result
+    failed_when: False
     loop: "{{ php_modules_common }}"
+    
+  - debug: var=result
 
   - name: Install php_extra_modules_centos for {{ansible_distribution}}
     yum: 
