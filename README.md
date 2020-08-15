@@ -1,4 +1,4 @@
-Ansible Role: php-fpm
+Ansible Role: php
 =========
 
 本 Role 用于在PHP运行环境下安装 [PHP](https://www.php.net/)。
