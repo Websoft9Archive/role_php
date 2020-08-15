@@ -33,7 +33,8 @@ roles:
 | **Items**      | **Details** | **Format**  | **是否初始化** |
 | ------------------| ------------------|-----|-----|
 | php_version | [ 5.6, 7.0, 7.1, 7.2（默认）, 7.3 ] | 字符串 | 否 |
-| php_ioncube | [Trure, Fasle（默认）] | 布尔 | 否
+| php_ioncube | [Trure, Fasle（默认）] | 布尔 | 否|
+| php_configuration_extras | - | 列表 | 否|
 
 
 
@@ -41,8 +42,8 @@ roles:
 
 ```
 php_configuration_extras:
-  -
-  -
+  - name: max_execution_time
+    value: "800"
 ```
 
 ## FAQ
