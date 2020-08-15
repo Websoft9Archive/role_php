@@ -15,7 +15,6 @@
 - name: Enable php version for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
 
-
 - name: Set yum priority for PHP, because amzn2-core have php5.4
   blockinfile:
     path: "{{ item }}"
@@ -44,15 +43,17 @@
 
   - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
-      name: "{{ php_modules_common }}"
+      name: "{{ item }}"
       state: latest
       update_cache: yes
+    loop: "{{ php_modules_common }}"
 
   - name: Install php_extra_modules_centos for {{ansible_distribution}}
     yum: 
-      name: "{{ php_extra_modules_centos }}"
+      name: "{{ item }}"
       state: latest 
       update_cache: yes
+    loop: "{{ php_extra_modules_centos }}"
 
 - name: Create a PHP  symbolic link
   file:
