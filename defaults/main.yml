@@ -25,7 +25,7 @@ php_configuration_default:
     
 #php_configuration_extras:
 
-# Metadata, php<7.1 need php-pecl-mcrypt
+# Metadata, php<7.1 need php-pecl-mcrypt; php<7.3 no php-zip package
 # RedHat: [apcu,imagick,goeio,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
 php_modules_common:
   - php-apcu
