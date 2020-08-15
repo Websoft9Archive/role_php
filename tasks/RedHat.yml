@@ -41,7 +41,7 @@
     loop: "{{ php_extra_modules_amazon }}"
     when: ansible_distribution == "Amazon"
 
-  - name: Install php_modules_common for {{ansible_distribution}}, print when error but installation go on
+  - name: Install php_modules_common for {{ansible_distribution}}, print when all module installation errors but installation go on
     yum: 
       name: "{{ item }}"
       state: latest
