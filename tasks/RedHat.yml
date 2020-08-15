@@ -35,21 +35,24 @@
 
   - name: Install php_extra_modules_amazon for {{ansible_distribution}}
     yum: 
-      name: "{{ php_extra_modules_amazon }}"
+      name: "{{ item }}"
       state: latest
       update_cache: yes
       disablerepo: "amzn2-core"
+    loop: "{{ php_extra_modules_amazon }}"
     when: ansible_distribution == "Amazon"
 
   - name: Install php_modules_common for {{ansible_distribution}}
     yum: 
       name: "{{ php_modules_common }}"
       state: latest
+      update_cache: yes
 
   - name: Install php_extra_modules_centos for {{ansible_distribution}}
     yum: 
       name: "{{ php_extra_modules_centos }}"
       state: latest 
+      update_cache: yes
 
 - name: Create a PHP  symbolic link
   file:
