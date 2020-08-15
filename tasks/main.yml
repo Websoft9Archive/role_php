@@ -51,6 +51,12 @@
     name: php-fpm
     state: restarted
     enabled: yes
+    
+- name: Link PHP-FPM service
+  file:
+    src: /usr/lib/systemd/system/php-fpm.service
+    dest: /usr/lib/systemd/system/php.service
+    state: link
 
 #4 Verify 
 - name: Check PHP Version
