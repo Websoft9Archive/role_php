@@ -51,7 +51,7 @@
     loop: "{{ php_modules_common }}"
     
   - debug: 
-      msg: "{{ result | json_query('results[*].results[0]') }}"
+      msg: "{{ result | json_query('results[*].results[*]') }}"
 
   - name: Install php_extra_modules_centos for {{ansible_distribution}}
     yum: 
