@@ -50,7 +50,8 @@
     failed_when: False
     loop: "{{ php_modules_common }}"
     
-  - debug: var=result
+  - debug: 
+      msg: "{{ result | json_query('results[*].results[*]') }}"
 
   - name: Install php_extra_modules_centos for {{ansible_distribution}}
     yum: 
