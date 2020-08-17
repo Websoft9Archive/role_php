@@ -11,6 +11,7 @@
 
 ### Bug Fixes
 
+* 2020-08-17  modify vhost_dir: /etc/httpd/vhost to vhost_dir: /etc/httpd/conf.d in php_runtime_meta.yml
 * 2020-05-31  add check php-fpm service, check version to file
 * 2020-05-31  yum install php72w-pecl-imagick error, add skip_broken=yes
 * 2020-03-03  max_input_vars=2000
