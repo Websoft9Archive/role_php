@@ -18,5 +18,6 @@
 
 ### Features
 
+* 2020-08-17  add msg: "{{ result | json_query('results[*].results[*]') }}" of RedHat.yml to filter all output
 * 2020-08-15  add php.service soft link to php-fpm.service
 * 2020-02-14  rename php-fpm to php for this repository
