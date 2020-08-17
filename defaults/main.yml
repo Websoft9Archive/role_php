@@ -11,7 +11,7 @@ php_configuration_default:
   - name: max_execution_time
     value: "300"
   - name: max_input_time
-    value: "600"
+    value: "800"
   - name: memory_limit
     value: "600"
   - name: error_reporting
