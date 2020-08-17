@@ -1,7 +1,7 @@
 php_runtime_meta:
   RedHat:
     apache:
-      vhost_dir: /etc/httpd/vhost
+      vhost_dir: /etc/httpd/conf.d
       vhost_src: vhost.conf
       service: httpd
       owner: apache
