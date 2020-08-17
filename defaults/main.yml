@@ -6,7 +6,11 @@ php_getcomposer_url: "https://getcomposer.org/composer.phar"
 php_ioncube_url: "https://dl.cnezsoft.com/ioncube_loaders_lin_x86-64.zip"
 php_ioncube: False
 
+#php_configuration_extras:
+  #- name: max_execution_time
+  #  value: "300"
 
+# This var only for role inner program, don't use it in your repository
 php_configuration_default:
   - name: max_execution_time
     value: "300"
@@ -23,8 +27,6 @@ php_configuration_default:
   - name: max_file_uploads
     value: "200"
     
-#php_configuration_extras:
-
 # Metadata, php<7.1 need php-pecl-mcrypt; php<7.3 no php-zip package
 # RedHat: [apcu,imagick,goeio,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
 php_modules_common:
