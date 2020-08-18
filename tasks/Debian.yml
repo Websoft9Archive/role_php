@@ -12,23 +12,6 @@
     name: ['php{{php_version}}','php{{php_version}}-fpm','php{{php_version}}-apcu','php{{php_version}}-cli','php{{php_version}}-bz2','php{{php_version}}-common','php{{php_version}}-curl','php{{php_version}}-gd','php{{php_version}}-geoip','php{{php_version}}-imagick','php{{php_version}}-imap','php{{php_version}}-intl','php{{php_version}}-json','php{{php_version}}-mbstring','php{{php_version}}-memcache','php{{php_version}}-mysql','php{{php_version}}-mongodb','php{{php_version}}-pgsql','php{{php_version}}-redis','php{{php_version}}-sqlite3','php{{php_version}}-tidy','php{{php_version}}-xml','php{{php_version}}-zip','php-pear']
   when: php_version >= "7.1"
 
-- name: Install Composer
-  get_url:
-    url: "{{ php_getcomposer_url}}"
-    dest: /usr/bin/composer
-    mode: 0750
-
-- name: Configure PHP
-  template:
-    src: php-ubuntu.ini
-    dest: /etc/php/{{php_version}}/fpm/php.ini
-
-- name: Restart PHP-FPM
-  service:
-    name: php{{php_version}}-fpm
-    state: restarted
-    enabled: yes
-
 - name: Create a PHP  symbolic link
   file:
     src: '{{item.src}}'
