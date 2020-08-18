@@ -68,9 +68,6 @@ php_extra_modules_centos:
   - php-mysqlnd
   - php-pdo_dblib
 
-php_extra_modules_amazon:
-  - php-imagick
-
 php_extra_modules_ubuntu:
   - php-dev
   - php-mysql
