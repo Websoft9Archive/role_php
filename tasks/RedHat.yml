@@ -22,15 +22,6 @@
       state: latest
       update_cache: yes
 
-  - name: Install php_extra_modules_amazon for {{ansible_distribution}}
-    yum: 
-      name: "{{ item }}"
-      state: latest
-      update_cache: yes
-      disablerepo: "amzn2-core"
-    loop: "{{ php_extra_modules_amazon }}"
-    when: ansible_distribution == "Amazon"
-
   - name: Install php_modules_common for {{ansible_distribution}}, print when all module installation errors but installation go on
     yum: 
       name: "{{ item }}"
