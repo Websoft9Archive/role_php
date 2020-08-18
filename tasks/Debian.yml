@@ -18,5 +18,5 @@
     dest: '{{item.dest}}'
     state: link
   with_items:
-    - {src: '/etc/php/{{php_version}}/fpm',dest: /data/config/php}  
+    - {src: '/etc/php/{{php_version}}/fpm',dest: /data/config/php/}  
     - {src: '/var/log/php{{php_version}}-fpm.log',dest: '/data/logs/php{{php_version}}-fpm.log'}
