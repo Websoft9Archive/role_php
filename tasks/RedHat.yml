@@ -15,16 +15,6 @@
 - name: Enable php version for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
 
-- name: Set yum priority for PHP, because amzn2-core have php5.4
-  blockinfile:
-    path: "{{ item }}"
-    insertafter: "enabled=1"
-    block: "priority=1"
-  loop:
-    - /etc/yum.repos.d/remi-php{{php_version_regex}}.repo
-    - /etc/yum.repos.d/epel.repo
-  when: ansible_distribution == "Amazon"
-
 - block:
   - name: Install PHP core for {{ansible_distribution}}
     yum: 
