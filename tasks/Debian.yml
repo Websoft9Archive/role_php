@@ -33,6 +33,6 @@
     dest: '{{item.dest}}'
     state: link
   with_items:
-    - {src: '/etc/php/{{php_version}}/fpm/php.ini',dest: /data/config/php/fpm/php.ini}
-    - {src: '/etc/php/{{php_version}}/fpm/php-fpm.conf',dest: /data/config/php/fpm/php-fpm.conf}
+    - {src: '/etc/php/{{php_version}}/fpm/php.ini',dest: /data/config/php/php.ini}
+    - {src: '/etc/php/{{php_version}}/fpm/php-fpm.conf',dest: /data/config/php/php-fpm.conf}
     - {src: '/var/log/php{{php_version}}-fpm.log',dest: '/data/logs/php{{php_version}}-fpm.log'}
