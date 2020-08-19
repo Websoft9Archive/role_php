@@ -36,3 +36,5 @@
     - {src: '/etc/php/{{php_version}}/fpm/php.ini',dest: /data/config/php/php.ini}
     - {src: '/etc/php/{{php_version}}/fpm/php-fpm.conf',dest: /data/config/php/php-fpm.conf}
     - {src: '/var/log/php{{php_version}}-fpm.log',dest: '/data/logs/php{{php_version}}-fpm.log'}
+    - {src: '/lib/systemd/system/php{{php_version}}-fpm.service',dest: /lib/systemd/system/php-fpm.service}
+    - {src: '/etc/php/{{php_version}}/fpm/php.ini',dest: /etc/php.ini}
