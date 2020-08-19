@@ -20,12 +20,12 @@
 - debug: 
     msg: "{{ result | json_query('results[*].results[*]') }}"
 
-- name: Install php_extra_modules_centos for {{ansible_distribution}}
+- name: Install php_extra_modules_ubuntu for {{ansible_distribution}}
   apt: 
     name: "{{ item }}"
     state: latest 
     update_cache: yes
-  loop: "{{ php_extra_modules_centos }}"
+  loop: "{{ php_extra_modules_ubuntu }}"
 
 - name: Create a PHP  symbolic link
   file:
