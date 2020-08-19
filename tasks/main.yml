@@ -54,8 +54,8 @@
     
 - name: Link PHP-FPM service
   file:
-    src: /usr/lib/systemd/system/php-fpm.service
-    dest: /usr/lib/systemd/system/php.service
+    src: /lib/systemd/system/php-fpm.service
+    dest: /lib/systemd/system/php.service
     state: link
 
 #4 Verify 
