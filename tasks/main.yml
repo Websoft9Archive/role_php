@@ -32,7 +32,7 @@
 #3 Configure
 - name: Change php.ini default
   lineinfile:
-    dest: /etc/php.ini
+    dest: /data/config/php/php.ini
     regexp: '^{{ item.name }} = *'
     line: "{{ item.name }} = {{item.value}}"
   with_items: "{{ php_configuration_default }}"
@@ -40,7 +40,7 @@
   
 - name: Change php.ini extras
   lineinfile:
-    dest: /etc/php.ini
+    dest: /data/config/php/php.ini
     regexp: '^{{ item.name }} = *'
     line: "{{ item.name }} = {{item.value}}"
   with_items: "{{ php_configuration_extras }}"
