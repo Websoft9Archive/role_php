@@ -1,7 +1,7 @@
-- name: test nginx server is running
+- name: Test nginx server is running
   shell: |
     temp=`systemctl status nginx  |grep Active`
-    [[ $temp =~ "Active" ]] && php_run_server="nginx"
+    [[ $temp =~ "running" ]] && php_run_server="nginx"
 
 - name: Support PHP
   copy:
@@ -9,10 +9,10 @@
     dest: /etc/nginx/extra/php.conf
   when: php_run_server == "nginx"
 
-- name: test nginx server is running
+- name: Test apache server is running
   shell: |
     temp=`systemctl status httpd  |grep Active`
-    [[ $temp =~ "Active" ]] && php_run_server="apache"
+    [[ $temp =~ "running" ]] && php_run_server="apache"
     
 - name: Support PHP
   copy:
