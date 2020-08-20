@@ -12,6 +12,7 @@ php_ioncube: False
   #- name: max_execution_time
   #  value: "300"
 
+# -----------------------------static var --------------------------------------------
 # This var only for role inner program, don't use it in your repository
 php_configuration_default:
   - name: max_execution_time
