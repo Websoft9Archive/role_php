@@ -1,8 +1,9 @@
-
+# runtime sever is nginx,apache,or no sever is running
 - name: Configure PHP-FPM
   template:
     src: www.conf.jinja2
     dest: /etc/php-fpm.d/www.conf
+  when: php_run_server != ""
 
 - name: Support PHP
   copy:
