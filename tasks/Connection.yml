@@ -6,5 +6,5 @@
 
 - name: Support PHP
   copy:
-    src: nginx-php.conf
+    src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
