@@ -8,7 +8,7 @@
 - debug: var=php_run_server
 
 - name: Configur php.conf
-  copy:
+  template:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
   when: php_run_server.stdout == "nginx"
@@ -19,7 +19,7 @@
     [[ $temp =~ "running" ]] && php_run_server="apache"
     
 - name: Configur php.conf
-  copy:
+  template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
   when: php_run_server == "apache"
