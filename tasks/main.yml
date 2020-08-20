@@ -8,6 +8,10 @@
 #2 Install
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
+
+# add connect event: php connect apache or nginx
+- name: php connect apache or nginx on {{ansible_os_family}}
+  include: "Connection.yml"
   
 - name: Install Composer
   get_url:
