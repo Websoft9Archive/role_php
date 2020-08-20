@@ -2,7 +2,7 @@
 php_version: "7.2"
 
 php_connect_flag: True
-php_run_server: "nginx"
+php_run_server: ""
 
 php_getcomposer_url: "https://getcomposer.org/composer.phar"
 
