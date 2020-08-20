@@ -25,4 +25,4 @@
   template:
     src: www.conf.jinja2
     dest: /etc/php-fpm.d/www.conf
-  when: php_run_server != ""
+  when: php_run_server is defined and php_run_server is not none
