@@ -1,24 +1,24 @@
-- name: Server set init value
-  set_fact:
-    php_run_server: ""
-    
 - name: Test nginx server is running
   shell: |
-    temp=`systemctl status nginx  |grep Active`
-    [[ $temp =~ "running" ]] && php_run_server="nginx"
+    temp=`systemctl status nginx  | grep Active | grep running`
+    [[ $temp ]] && php_run_server="nginx"
+    echo $php_run_server
+  register: php_run_server
 
-- name: Configure php.conf
+- debug: var=php_run_server
+
+- name: Configur php.conf
   copy:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
-  when: php_run_server == "nginx"
+  when: php_run_server.stdout == "nginx"
 
 - name: Test apache server is running
   shell: |
     temp=`systemctl status httpd  |grep Active`
     [[ $temp =~ "running" ]] && php_run_server="apache"
     
-- name: Configure php.conf
+- name: Configur php.conf
   copy:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
