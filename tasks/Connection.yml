@@ -1,3 +1,7 @@
+- name: Server set init value
+  set_fact:
+    php_run_server: ""
+    
 - name: Test nginx server is running
   shell: |
     temp=`systemctl status nginx  |grep Active`
