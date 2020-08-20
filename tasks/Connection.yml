@@ -8,3 +8,10 @@
   copy:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
+  when: nginx
+  
+  - name: Support PHP
+  copy:
+    src: php.conf.jinja2
+    dest: /etc/nginx/extra/php.conf
+  when: apache
