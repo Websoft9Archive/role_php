@@ -12,6 +12,7 @@
 # add connect event: php connect apache or nginx
 - name: php connect apache or nginx on {{ansible_os_family}}
   include: "Connection.yml"
+  when: php_connect_flag
   
 - name: Install Composer
   get_url:
