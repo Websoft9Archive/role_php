@@ -1,1 +1,10 @@
 
+- name: Configure PHP-FPM
+  template:
+    src: www.conf.jinja2
+    dest: /etc/php-fpm.d/www.conf
+
+- name: Support PHP
+  copy:
+    src: nginx-php.conf
+    dest: /etc/nginx/extra/php.conf
