@@ -7,7 +7,7 @@
     temp=`systemctl status nginx  |grep Active`
     [[ $temp =~ "running" ]] && php_run_server="nginx"
 
-- name: Support PHP
+- name: Configure php.conf
   copy:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
@@ -18,7 +18,7 @@
     temp=`systemctl status httpd  |grep Active`
     [[ $temp =~ "running" ]] && php_run_server="apache"
     
-- name: Support PHP
+- name: Configure php.conf
   copy:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
