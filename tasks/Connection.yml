@@ -8,10 +8,10 @@
   copy:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
-  when: nginx
+  when: php_run_server == "nginx"
   
   - name: Support PHP
   copy:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
-  when: apache
+  when: php_run_server == "apache"
