@@ -5,7 +5,9 @@
     echo $php_run_server
   register: php_run_server
 
-- debug: var=php_run_server
+- name: set rphp_run_servername by running server
+  set_fact: php_run_servername="nginx"
+  when: php_run_server.stdout == "nginx"
 
 - name: Configur nginx php.conf
   template:
@@ -20,15 +22,20 @@
     echo $php_run_server
   register: php_run_server
   
+- name: set rphp_run_servername by running server
+  set_fact: php_run_servername="apache"
+  when: php_run_server.stdout == "apache"
+
 - name: Configur apache php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
   when: php_run_server.stdout == "apache"
 
-# runtime sever is nginx,apache,or no sever is running
+- debug: var=php_run_servername
+
 - name: Configure PHP-FPM
   template:
     src: www.conf.jinja2
     dest: /etc/php-fpm.d/www.conf
-  when: php_run_server is defined and php_run_server is not none
+  when: php_run_servername is defined and php_run_servername is not none
