@@ -7,7 +7,7 @@
 
 - debug: var=php_run_server
 
-- name: Configur php.conf
+- name: Configur nginx php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
@@ -15,10 +15,12 @@
 
 - name: Test apache server is running
   shell: |
-    temp=`systemctl status httpd  |grep Active`
-    [[ $temp =~ "running" ]] && php_run_server="apache"
-    
-- name: Configur php.conf
+    temp=`systemctl status httpd  | grep Active | grep running`
+    [[  $temp  ]] && php_run_server="apache"
+    echo $php_run_server
+  register: php_run_server
+  
+- name: Configur apache php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
