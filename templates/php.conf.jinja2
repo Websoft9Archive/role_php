@@ -1,3 +1,4 @@
+{% if nginx_vhost_mode == 'nginx' %}
 location ~ .*\.php$
 {
     fastcgi_pass  unix:/run/php-fpm.sock;
@@ -6,7 +7,10 @@ location ~ .*\.php$
     include fastcgi_params;
     try_files $uri = 404;
 }
+{% endif %}
 
+{% if nginx_vhost_mode == 'reverse' %}
 <FilesMatch \.php$>                                         
   SetHandler "proxy:unix:///run/php-fpm.sock|fcgi://localhost"                                          
 </FilesMatch> 
+{% endif %}
