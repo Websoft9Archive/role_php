@@ -15,7 +15,7 @@
 
 - name: Test apache server is running
   shell: |
-    temp=`systemctl status httpd  | grep Active | grep running`
+    temp=`systemctl status apache  | grep Active | grep running`
     [[  $temp  ]] && php_run_server="apache"
     echo $php_run_server
   register: php_run_server
