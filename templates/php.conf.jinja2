@@ -9,7 +9,7 @@ location ~ .*\.php$
 }
 {% endif %}
 
-{% if php_run_server == 'reverse' %}
+{% if php_run_server == 'apache' %}
 <FilesMatch \.php$>                                         
   SetHandler "proxy:unix:///run/php-fpm.sock|fcgi://localhost"                                          
 </FilesMatch> 
