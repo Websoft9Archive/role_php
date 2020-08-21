@@ -13,6 +13,22 @@ php_ioncube: False
   #  value: "300"
 
 # -----------------------------static var --------------------------------------------
+runtime_php_user: 
+  RedHat:
+    apache:
+      user: apache
+      group: apache
+    nginx:
+      user: nginx
+      group: nginx
+  Debian:
+    apache:
+      user: www-data
+      group: www-data
+    nginx:
+      user: www-data
+      group: www-data
+      
 # This var only for role inner program, don't use it in your repository
 php_configuration_default:
   - name: max_execution_time
