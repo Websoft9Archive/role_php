@@ -24,7 +24,7 @@
   template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
-  when: php_run_server == "apache"
+  when: php_run_server.stdout == "apache"
 
 # runtime sever is nginx,apache,or no sever is running
 - name: Configure PHP-FPM
