@@ -1,4 +1,4 @@
-{% if php_run_server == 'nginx' %}
+{% if php_run_server.stdout == 'nginx' %}
 location ~ .*\.php$
 {
     fastcgi_pass  unix:/run/php-fpm.sock;
@@ -9,7 +9,7 @@ location ~ .*\.php$
 }
 {% endif %}
 
-{% if php_run_server == 'apache' %}
+{% if php_run_server.stdout == 'apache' %}
 <FilesMatch \.php$>                                         
   SetHandler "proxy:unix:///run/php-fpm.sock|fcgi://localhost"                                          
 </FilesMatch> 
