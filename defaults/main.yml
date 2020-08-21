@@ -3,7 +3,7 @@ php_version: "7.2"
 
 php_connect_flag: True
 # jinja2 arrays must use role vars
-php_run_server: "nginx"
+php_run_servername: "nginx"
 
 php_getcomposer_url: "https://getcomposer.org/composer.phar"
 
