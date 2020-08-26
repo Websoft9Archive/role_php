@@ -11,7 +11,7 @@
   register: php_run_server
   
 - name: set rphp_run_servername by running server
-  set_fact: php_run_servername=php_run_server.stdout
+  set_fact: php_run_servername={{php_run_server.stdout}}
 
 - debug: var=php_run_server.stdout
 
