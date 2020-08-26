@@ -12,19 +12,17 @@
 
 - debug: var=php_run_server.stdout
 
-- name: Configur nginx php.conf
+- name: Configure nginx php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
   when: php_run_server.stdout == "nginx"
   
-- name: Configur apache php.conf
+- name: Configure apache php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
   when: php_run_server.stdout == "apache"
-
-- debug: var=php_run_servername
 
 - name: Configure PHP-FPM
   template:
