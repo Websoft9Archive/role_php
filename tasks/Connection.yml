@@ -27,8 +27,8 @@
     dest: /etc/httpd/conf.d/php.conf
   when: php_run_servername == "apache"
 
-#- name: Configure PHP-FPM
-#  template:
-#    src: www.conf.jinja2
-#    dest: /etc/php-fpm.d/www.conf
-#  when: php_run_servername != "nothing" and ansible_os_family == "RedHat"
+- name: Configure PHP-FPM
+  template:
+    src: www.conf.jinja2
+    dest: /etc/php-fpm.d/www.conf
+  when: php_run_servername != "nothing" and ansible_os_family == "RedHat"
