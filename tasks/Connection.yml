@@ -9,6 +9,9 @@
     fi
     echo $php_run_server
   register: php_run_server
+  
+- name: set rphp_run_servername by running server
+  set_fact: php_run_servername=php_run_server.stdout
 
 - debug: var=php_run_server.stdout
 
@@ -16,16 +19,16 @@
   template:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
-  when: php_run_server.stdout == "nginx"
+  when: php_run_servername == "nginx"
   
 - name: Configure apache php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
-  when: php_run_server.stdout == "apache"
+  when: php_run_servername == "apache"
 
 - name: Configure PHP-FPM
   template:
     src: www.conf.jinja2
     dest: /etc/php-fpm.d/www.conf
-  when: php_run_server.stdout != "nothing"
+  when: php_run_servername != "nothing"
