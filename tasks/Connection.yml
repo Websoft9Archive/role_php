@@ -1,11 +1,11 @@
 - name:  get the running server | apche | nginx |nothing
   shell: |
     if [ `ps -ef | grep nginx | grep -v grep | wc -l` -gt 0 ];then
-    php_run_server=nginx
+    php_run_server = nginx
     elif [ `ps -ef | grep apache | grep -v grep | wc -l` -gt 0 ];then
-    php_run_server=apache
+    php_run_server = apache
     else
-    php_run_server=nothing
+    php_run_server = nothing
     fi
     echo $php_run_server
   register: php_run_server
