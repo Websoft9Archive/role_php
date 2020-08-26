@@ -1,31 +1,23 @@
-- name: Test nginx server is running
+- name:  get the running server | apche | nginx |nothing
   shell: |
-    temp=`systemctl status nginx  | grep Active | grep running`
-    [[ $temp ]] && php_run_server="nginx"
+    if [ `ps -ef | grep nginx | grep -v grep | wc -l` -gt 0 ];then
+    php_run_server=nginx
+    elif [ `ps -ef | grep apache | grep -v grep | wc -l` -gt 0 ];then
+    php_run_server=apache
+    else
+    php_run_server=nothing
+    fi
     echo $php_run_server
   register: php_run_server
 
-- name: set rphp_run_servername by running server
-  set_fact: php_run_servername="nginx"
-  when: php_run_server.stdout == "nginx"
+- debug: var=php_run_server.stdout
 
 - name: Configur nginx php.conf
   template:
     src: php.conf.jinja2
     dest: /etc/nginx/extra/php.conf
   when: php_run_server.stdout == "nginx"
-
-- name: Test apache server is running
-  shell: |
-    temp=`systemctl status apache  | grep Active | grep running`
-    [[  $temp  ]] && php_run_server="apache"
-    echo $php_run_server
-  register: php_run_server
   
-- name: set rphp_run_servername by running server
-  set_fact: php_run_servername="apache"
-  when: php_run_server.stdout == "apache"
-
 - name: Configur apache php.conf
   template:
     src: php.conf.jinja2
@@ -38,4 +30,4 @@
   template:
     src: www.conf.jinja2
     dest: /etc/php-fpm.d/www.conf
-  when: php_run_servername is defined and php_run_servername is not none
+  when: php_run_server.stdout != "nothing"
