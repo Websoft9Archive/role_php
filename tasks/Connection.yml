@@ -31,4 +31,4 @@
 #  template:
 #    src: www.conf.jinja2
 #    dest: /etc/php-fpm.d/www.conf
-#  when: php_run_servername != "nothing"
+#  when: php_run_servername != "nothing" and ansible_os_family == "RedHat"
