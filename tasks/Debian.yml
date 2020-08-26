@@ -15,7 +15,7 @@
     update_cache: yes
   register: php_install_result
   failed_when: False
-  loop: "{{ php_modules_common }}"
+  loop: "{{ php_modules_common }}{{php_version}}"
 
 - debug: 
     msg: "{{ php_install_result | json_query('results[*].results[*]') }}"
