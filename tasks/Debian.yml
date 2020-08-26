@@ -10,12 +10,12 @@
     
 - name: Install php_modules_common for {{ansible_distribution}}, print when all module installation errors but installation go on
   apt: 
-    name: "{{ item }}"
+    name: "{{ item }}{{php_version}}"
     state: latest
     update_cache: yes
   register: php_install_result
   failed_when: False
-  loop: "{{ php_modules_common }}{{php_version}}"
+  loop: "{{ php_modules_common }}"
 
 - debug: 
     msg: "{{ php_install_result | json_query('results[*].results[*]') }}"
