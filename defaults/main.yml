@@ -26,8 +26,8 @@ runtime_php_user:
       user: www-data
       group: www-data
     nginx:
-      user: www-data
-      group: www-data
+      user: nginx
+      group: nginx
       
 # This var only for role inner program, don't use it in your repository
 php_configuration_default:
