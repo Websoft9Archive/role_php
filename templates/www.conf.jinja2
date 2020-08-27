@@ -1,10 +1,10 @@
   
 [www]
-user = {{runtime_php_user[ansible_os_family][php_run_servername].user}}
-group = {{runtime_php_user[ansible_os_family][php_run_servername].group}}
+user = {{php_run_servername}}
+group = {{php_run_servername}}
 listen = /run/php-fpm.sock
-listen.owner = {{runtime_php_user[ansible_os_family][php_run_servername].user}}
-listen.group = {{runtime_php_user[ansible_os_family][php_run_servername].group}}
+listen.owner = {{php_run_servername}}
+listen.group = {{php_run_servername}}
 listen.mode = 0660
 pm = dynamic
 pm.max_children = 50
