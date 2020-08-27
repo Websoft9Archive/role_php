@@ -2,10 +2,10 @@
 [www]
 user = {{php_run_servername}}
 group = {{php_run_servername}}
-{% if php_run_servername  == 'nginx' %}
+{% if ansible_os_family  == 'Centos' %}
 listen = /run/php-fpm.sock
 {% endif %}
-{% if php_run_servername  == 'nginx' %}
+{% if ansible_os_family  == 'Debian' %}
 listen = /run/php/php-fpm.sock
 {% endif %}
 listen.owner = {{php_run_servername}}
