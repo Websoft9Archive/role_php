@@ -4,7 +4,10 @@ user = {{php_run_servername}}
 group = {{php_run_servername}}
 {% if php_run_servername  == 'nginx' %}
 listen = /run/php-fpm.sock
-{% end if %}
+{% endif %}
+{% if php_run_servername  == 'nginx' %}
+listen = /run/php/php-fpm.sock
+{% endif %}
 listen.owner = {{php_run_servername}}
 listen.group = {{php_run_servername}}
 listen.mode = 0660
