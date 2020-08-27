@@ -2,7 +2,7 @@
 [www]
 user = {{php_run_servername}}
 group = {{php_run_servername}}
-{% if ansible_os_family  == 'Centos' %}
+{% if ansible_os_family  == 'RedHat' %}
 listen = /run/php-fpm.sock
 {% endif %}
 {% if ansible_os_family  == 'Debian' %}
