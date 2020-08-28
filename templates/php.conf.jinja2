@@ -14,7 +14,6 @@ location ~ .*\.php$
     try_files $uri = 404;
 }
 {% endif %}
-
 {% if php_run_servername  == 'apache' %}
 <FilesMatch \.php$>
 {% if ansible_os_family  == 'RedHat' %}
@@ -22,6 +21,6 @@ location ~ .*\.php$
 {% endif %}
 {% if ansible_os_family  == 'Debian' %}
   SetHandler "proxy:unix:///run/php/php-fpm.sock|fcgi://localhost"
-{% endif %}                                      
+{% endif %}
 </FilesMatch> 
 {% endif %}
