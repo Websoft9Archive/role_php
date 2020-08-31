@@ -17,10 +17,10 @@ location ~ .*\.php$
 {% if php_run_servername  == 'apache' %}
 <FilesMatch \.php$>
 {% if ansible_os_family  == 'RedHat' %}
-  SetHandler "proxy:unix:///run/php-fpm.sock|fcgi://localhost"
+  SetHandler "proxy:unix:/run/php-fpm.sock|fcgi://localhost"
 {% endif %}
 {% if ansible_os_family  == 'Debian' %}
-  SetHandler "proxy:unix:///run/php/php-fpm.sock|fcgi://localhost"
+  SetHandler "proxy:unix:/run/php/php-fpm.sock|fcgi://localhost"
 {% endif %}
 </FilesMatch> 
 {% endif %}
