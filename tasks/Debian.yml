@@ -130,8 +130,6 @@
 - name: Install PHP{{php_version}}-mongodb
   apt:
     name: php{{php_version}}-mongodb
-    state: latest
-    update_cache: yes	
   failed_when: False
   
 - name: Install PHP{{php_version}}-odbc
@@ -250,7 +248,6 @@
   apt:
     name: php{{php_version}}-sqlite3
     state: latest
-    update_cache: yes	
   failed_when: False
 
 - name: Create a PHP  symbolic link
