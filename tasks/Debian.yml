@@ -1,16 +1,31 @@
 - name: Import PHP PPA
   apt_repository:
     repo: ppa:ondrej/php
-
+    
 - name: Install PHP{{php_version}}
   apt:
-    name: ['php{{php_version}}','php{{php_version}}-fpm','php{{php_version}}-apcu','php{{php_version}}-mcrypt','php{{php_version}}-cli','php{{php_version}}-bz2','php{{php_version}}-common','php{{php_version}}-curl','php{{php_version}}-gd','php{{php_version}}-geoip','php{{php_version}}-imagick','php{{php_version}}-imap','php{{php_version}}-intl','php{{php_version}}-json','php{{php_version}}-mbstring','php{{php_version}}-memcache','php{{php_version}}-mysql','php{{php_version}}-mongodb','php{{php_version}}-pgsql','php{{php_version}}-redis','php{{php_version}}-sqlite3','php{{php_version}}-tidy','php{{php_version}}-xml','php{{php_version}}-zip','php-pear']
-  when: php_version < "7.1"
+    name: php{{php_version}}
+    state: latest
+    update_cache: yes
+    
+- name: Install php_modules_common for {{ansible_distribution}}, print when all module installation errors but installation go on
+  apt: 
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  register: php_install_result
+  failed_when: False
+  loop: "{{ php_modules_common }}"
 
-- name: Install PHP{{php_version}}
-  apt:
-    name: ['php{{php_version}}','php{{php_version}}-fpm','php{{php_version}}-apcu','php{{php_version}}-cli','php{{php_version}}-bz2','php{{php_version}}-common','php{{php_version}}-curl','php{{php_version}}-gd','php{{php_version}}-geoip','php{{php_version}}-imagick','php{{php_version}}-imap','php{{php_version}}-intl','php{{php_version}}-json','php{{php_version}}-mbstring','php{{php_version}}-memcache','php{{php_version}}-mysql','php{{php_version}}-mongodb','php{{php_version}}-pgsql','php{{php_version}}-redis','php{{php_version}}-sqlite3','php{{php_version}}-tidy','php{{php_version}}-xml','php{{php_version}}-zip','php-pear']
-  when: php_version >= "7.1"
+- debug: 
+    msg: "{{ php_install_result | json_query('results[*].results[*]') }}"
+
+- name: Install php_extra_modules_ubuntu for {{ansible_distribution}}
+  apt: 
+    name: "{{ item }}"
+    state: latest 
+    update_cache: yes
+  loop: "{{ php_extra_modules_ubuntu }}"
 
 - name: Create a PHP  symbolic link
   file:
