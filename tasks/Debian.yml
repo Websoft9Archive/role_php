@@ -8,24 +8,250 @@
     state: latest
     update_cache: yes
     
-- name: Install php_modules_common for {{ansible_distribution}}, print when all module installation errors but installation go on
-  apt: 
-    name: "{{ item }}"
+- name: Install PHP{{php_version}}-apcu
+  apt:
+    name: php{{php_version}}-apcu
     state: latest
     update_cache: yes
-  register: php_install_result
   failed_when: False
-  loop: "{{ php_modules_common }}"
-
-- debug: 
-    msg: "{{ php_install_result | json_query('results[*].results[*]') }}"
-
-- name: Install php_extra_modules_ubuntu for {{ansible_distribution}}
-  apt: 
-    name: "{{ item }}"
-    state: latest 
+  
+- name: Install PHP{{php_version}}-bcmath
+  apt:
+    name: php{{php_version}}-bcmath
+    state: latest
     update_cache: yes
-  loop: "{{ php_extra_modules_ubuntu }}"
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-bz2
+  apt:
+    name: php{{php_version}}-bz2
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-cli
+  apt:
+    name: php{{php_version}}-cli
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-common
+  apt:
+    name: php{{php_version}}-common
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-curl
+  apt:
+    name: php{{php_version}}-curl
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-fpm
+  apt:
+    name: php{{php_version}}-fpm
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-gd
+  apt:
+    name: php{{php_version}}-gd
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-geoip
+  apt:
+    name: php{{php_version}}-geoip
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-imagick
+  apt:
+    name: php{{php_version}}-imagick
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-imap
+  apt:
+    name: php{{php_version}}-imap
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-intl
+  apt:
+    name: php{{php_version}}-intl
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-json
+  apt:
+    name: php{{php_version}}-json
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-ldap
+  apt:
+    name: php{{php_version}}-ldap
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-mbstring
+  apt:
+    name: php{{php_version}}-mbstring
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-mcrypt
+  apt:
+    name: php{{php_version}}-mcrypt
+    state: latest
+    update_cache: yes
+  failed_when: False
+
+- name: Install PHP{{php_version}}-memcache
+  apt:
+    name: php{{php_version}}-memcache
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-mongodb
+  apt:
+    name: php{{php_version}}-mongodb
+    state: latest
+    update_cache: yes	
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-odbc
+  apt:
+    name: php{{php_version}}-odbc
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-opcache
+  apt:
+    name: php{{php_version}}-opcache
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-pdo
+  apt:
+    name: php{{php_version}}-pdo
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-pear
+  apt:
+    name: php{{php_version}}-pear
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-pgsql
+  apt:
+    name: php{{php_version}}-pgsql
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-recode
+  apt:
+    name: php{{php_version}}-recode
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-redis
+  apt:
+    name: php{{php_version}}-redis
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-snmp
+  apt:
+    name: php{{php_version}}-snmp
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-soap
+  apt:
+    name: php{{php_version}}-soap
+    state: latest
+    update_cache: yes
+  failed_when: False
+
+- name: Install PHP{{php_version}}-tidy
+  apt:
+    name: php{{php_version}}-tidy
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-xml
+  apt:
+    name: php{{php_version}}-xml
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-xmlrpc
+  apt:
+    name: php{{php_version}}-xmlrpc
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-xmlrpc
+  apt:
+    name: php{{php_version}}-xmlrpc
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-zip
+  apt:
+    name: php{{php_version}}-zip
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-dev
+  apt:
+    name: php{{php_version}}-dev
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-mysql
+  apt:
+    name: php{{php_version}}-mysql
+    state: latest
+    update_cache: yes
+  failed_when: False
+  
+- name: Install PHP{{php_version}}-sqlite3
+  apt:
+    name: php{{php_version}}-sqlite3
+    state: latest
+    update_cache: yes	
+  failed_when: False
 
 - name: Create a PHP  symbolic link
   file:
