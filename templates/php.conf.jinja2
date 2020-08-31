@@ -1,13 +1,12 @@
 {% if php_run_servername  == 'nginx' %}
 location ~ .*\.php$
 {
-    {% if ansible_os_family  == 'RedHat' %}
-    fastcgi_pass  unix:/run/php-fpm.sock;
-    {% endif %}
-    {% if ansible_os_family  == 'Debian' %}
-    fastcgi_pass  unix:/run/php/php-fpm.sock;
-    {% endif %}
-    
+{% if ansible_os_family  == 'RedHat' %}
+fastcgi_pass  unix:/run/php-fpm.sock;
+{% endif %}
+{% if ansible_os_family  == 'Debian' %}
+fastcgi_pass  unix:/run/php/php-fpm.sock;
+{% endif %}  
     fastcgi_index index.php;
     fastcgi_param SCRIPT_FILENAME  $document_root$fastcgi_script_name;
     include fastcgi_params;
