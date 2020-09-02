@@ -81,7 +81,7 @@ php_modules_common:
   - php-xml
   - php-xmlrpc
   - php-zip
-#  - php-pecl-zip
+  - php-pecl-zip
 
 php_extra_modules_centos:
   - php-devel
