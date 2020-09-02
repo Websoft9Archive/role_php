@@ -47,7 +47,7 @@ php_configuration_default:
     value: "200"
     
 # Metadata, php<7.1 need php-pecl-mcrypt; php<7.3 no php-zip package
-# RedHat: [apcu,imagick,goeio,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
+# RedHat: [apcu,imagick,goeip,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
 # Amazon: php-imagick need installed at the first moment
 php_modules_common:
   - php-apcu
@@ -81,6 +81,7 @@ php_modules_common:
   - php-xml
   - php-xmlrpc
   - php-zip
+  - php-pecl-zip
 
 php_extra_modules_centos:
   - php-devel
