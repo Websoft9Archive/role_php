@@ -20,6 +20,9 @@
     dest: /usr/bin/composer
     mode: 0750
 
+- name: Update composer
+  shell: composer self-update -n
+
 - block:
   - name: Download ioncube and unzip
     unarchive:
