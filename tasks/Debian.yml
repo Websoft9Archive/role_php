@@ -16,13 +16,13 @@
   failed_when: False
   loop: "{{ php_modules_common }}"
   
-- name: Install php_modules_common
+- name: Install php_extra_modules_ubuntu
   apt:
     name: "{{ item | regex_replace('-', php_version~'-') }}"
     state: latest
     update_cache: yes
   failed_when: False
-  loop: "{{ php_modules_common }}"
+  loop: "{{ php_extra_modules_ubuntu }}"
 
 - name: Create a PHP  symbolic link
   file:
