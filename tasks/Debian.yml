@@ -7,7 +7,15 @@
     name: php{{php_version}}
     state: latest
     update_cache: yes
-    
+
+- name: Install php_modules_common
+  apt:
+    name: {{ item | regex_replace('-', php_version~'-') }}
+    state: latest
+    update_cache: yes
+  failed_when: False
+  loop: "{{ php_modules_common }}"
+  
 - name: Install PHP{{php_version}}-apcu
   apt:
     name: php{{php_version}}-apcu
