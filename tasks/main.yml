@@ -54,6 +54,9 @@
   with_items: "{{ php_configuration_extras }}"
   when: (php_configuration_extras is defined) and (php_configuration_extras != none)
   
+- name: Reload service
+  shell: systemctl daemon-reload  
+  
 - name: Restart PHP-FPM
   service:
     name: php-fpm
