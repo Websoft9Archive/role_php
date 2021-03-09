@@ -25,7 +25,7 @@
   template:
     src: php.conf.jinja2
     dest: /etc/httpd/conf.d/php.conf
-  backup: yes
+    backup: yes
   when: php_run_servername == "apache" and ansible_os_family == "RedHat"
 
 - name: Configure PHP-FPM of {{ansible_os_family}}
