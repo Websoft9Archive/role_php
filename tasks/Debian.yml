@@ -4,10 +4,10 @@
 
 - name: Remove PHP{{php_ver.stdout}}
   apt:
-    name: php-*
+    name: '[php{{php_version}},php-*]'
     state: absent
     update_cache: yes
-  when: php_ver is defined and php_ver.stdout != php_version
+  when: php_cli_exists.stat.exists and php_ver.stdout is defined
     
 - name: Install PHP{{php_version}}
   apt:
