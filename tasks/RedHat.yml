@@ -8,10 +8,26 @@
     name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
   when: ansible_distribution == "Amazon"  
     
+- block: 
+  - name: String convert, e.g 7.2 to 72
+    set_fact:
+      php_ver_regex: "{{ php_ver.stdout | regex_replace('^(?P<before>.+).(?P<after>\\d+)$', '\\g<before>\\g<after>')}}"
+
+  - name: Enable php version for {{php_ver.stdout}}
+    shell: yum-config-manager --disable remi-php{{php_ver_regex}}
+
+  - name: Remove php and php extends 
+    yum: 
+      name: php-*
+      state: absent
+      update_cache: yes
+  
+  when: php_ver is defined and php_ver.stdout != php_version
+
 - name: String convert, e.g 7.2 to 72
   set_fact:
     php_version_regex: "{{ php_version | regex_replace('^(?P<before>.+).(?P<after>\\d+)$', '\\g<before>\\g<after>')}}"
-    
+
 - name: Enable php version for {{php_version}}
   shell: yum-config-manager --enable remi-php{{php_version_regex}}
 

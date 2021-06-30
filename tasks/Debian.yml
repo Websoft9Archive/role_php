@@ -1,6 +1,13 @@
 - name: Import PHP PPA
   apt_repository:
     repo: ppa:ondrej/php
+
+- name: Remove PHP{{php_ver.stdout}}
+  apt:
+    name: php-*
+    state: absent
+    update_cache: yes
+  when: php_ver is defined and php_ver.stdout != php_version
     
 - name: Install PHP{{php_version}}
   apt:

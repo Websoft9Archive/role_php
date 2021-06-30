@@ -5,15 +5,23 @@
     state: directory
     recurse: yes
 
-- name: Whether PHP exists or not
-  shell: command -v php
+- name: Whether PHP command exists or not
+  stat:
+    path: /usr/bin/php
   register: php_cli_exists
 
-- debug: var=php_cli_exists
+- debug: var=php_cli_exists.stat.exists
+
+- name: Get php exists version
+  shell: > 
+    php --version |head -1 |awk '{print $2}' |cut -c 1-3
+  register: php_ver
+  when: php_cli_exists.stat.exists
 
 #2 Install
 - name: Install this role on {{ansible_os_family}}
-  include: "{{ansible_os_family}}.yml"
+  include: "{{ansible_os_family}}.yml" 
+  when: not (php_ver is defined and php_ver.stdout == php_version)
 
 # add connect event: php connect apache or nginx
 - name: php connect apache or nginx on {{ansible_os_family}}
