@@ -21,7 +21,7 @@
 #2 Install
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml" 
-  when: not (php_ver is defined and php_ver.stdout == php_version)
+  when: (php_ver.stdout is not defined) or (php_ver.stdout is defined and php_ver.stdout != php_version)
 
 # add connect event: php connect apache or nginx
 - name: php connect apache or nginx on {{ansible_os_family}}

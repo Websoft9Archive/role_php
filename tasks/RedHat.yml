@@ -22,7 +22,7 @@
       state: absent
       update_cache: yes
   
-  when: php_ver is defined and php_ver.stdout != php_version
+  when: php_ver.stdout is defined and php_ver.stdout != php_version
 
 - name: String convert, e.g 7.2 to 72
   set_fact:
