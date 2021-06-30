@@ -4,7 +4,13 @@
     path: /data/config/php
     state: directory
     recurse: yes
-    
+
+- name: Whether PHP exists or not
+  shell: command -v php
+  register: php_cli_exists
+
+- debug: var=php_cli_exists
+
 #2 Install
 - name: Install this role on {{ansible_os_family}}
   include: "{{ansible_os_family}}.yml"
