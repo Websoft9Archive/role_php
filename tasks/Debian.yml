@@ -4,7 +4,7 @@
 
 - name: Remove PHP{{php_ver.stdout}}
   apt:
-    name: '[php{{php_version}},php-*]'
+    name: '[php{{php_ver.stdout}},php-*]'
     state: absent
     update_cache: yes
   when: php_cli_exists.stat.exists and php_ver.stdout is defined
