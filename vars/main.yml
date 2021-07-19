@@ -69,6 +69,7 @@ php_modules_common:
   - php-xmlrpc
   - php-zip
   - php-pecl-zip
+  - php-gmp
 
 php_extra_modules_centos:
   - php-devel
