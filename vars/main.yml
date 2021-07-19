@@ -15,7 +15,24 @@ runtime_php_user:
     nginx:
       user: nginx
       group: nginx
-    
+
+# This var only for role inner program, don't use it in your repository
+php_configuration_default:
+  - name: max_execution_time
+    value: "300"
+  - name: max_input_time
+    value: "800"
+  - name: memory_limit
+    value: "600M"
+  - name: error_reporting
+    value: "E_ALL & ~E_DEPRECATED & ~E_STRICT"
+  - name: post_max_size
+    value: "900M"
+  - name: upload_max_filesize
+    value: "900M"
+  - name: max_file_uploads
+    value: "200"
+ 
 # Metadata, php<7.1 need php-pecl-mcrypt; php<7.3 no php-zip package
 # RedHat: [apcu,imagick,goeip,mcrypt,redis,zip,memcache] is from pecl, php-mysqlnd=php-mysql,php-sqlite3=hp-pdo 
 # Amazon: php-imagick need installed at the first moment
