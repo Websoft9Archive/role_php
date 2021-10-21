@@ -1,6 +1,5 @@
 - name: Import Remi's RPM PHP repository on {{ansible_distribution}}
-  yum:
-    name: https://rpms.remirepo.net/enterprise/remi-release-{{ansible_distribution_major_version}}.rpm
+  shell: yum install -y https://rpms.remirepo.net/enterprise/remi-release-{{ansible_distribution_major_version}}.rpm
   when: ansible_distribution == "CentOS"
   
 - name: Import Remi's RPM PHP repository on AmazonLinux2
