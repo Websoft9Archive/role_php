@@ -3,7 +3,7 @@ php_version: "7.2"
 
 php_connect_flag: True
 
-php_getcomposer_url: "https://getcomposer.org/composer-stable.phar"
+php_getcomposer_url: "https://getcomposer.org/download/2.2.12/composer.phar"
 
 php_ioncube_url: "https://dl.cnezsoft.com/ioncube_loaders_lin_x86-64.zip"
 php_ioncube: False
